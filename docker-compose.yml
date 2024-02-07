@@ -1,0 +1,21 @@
+﻿version: "3.8"
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "11433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Passw12#
+
+  rabbit1:
+    image: masstransit/rabbitmq:latest
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  rabbit2:
+    image: masstransit/rabbitmq:latest
+    ports:
+      - "15673:15672"
+      - "5673:5672"
